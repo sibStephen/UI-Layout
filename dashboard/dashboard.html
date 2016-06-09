@@ -1,0 +1,111 @@
+<!-- <h3 class="container-title">DASHBOARD</h3>
+<hr> -->
+<div class="parent-options">
+	<h4 class="section-title">Start Assessment</h4>
+	<div class="well">
+		<div class="well-item">
+			<a class="well-link" ui-sref="layout.report({type:'checklist'})"><i class="icon-Aquacheck"></i> AquaCheck</a>
+		</div>
+		<div class="well-item">
+			<a class="well-link" ui-sref="layout.report({type:'cip_tools_checklist'})"><i class="icon-CIP"></i> CIPCheck</a>
+		</div>
+		<div class="well-item">
+			<a class="well-link disabled" disabled href=""><i class="icon-LUBE"></i> LubeCheck</a>
+		</div>
+		<div class="well-item">
+			<a class="well-link disabled" disabled href=""><i class="icon-ALKA2"></i> AlkaCheck</a>
+		</div>
+		<div class="well-item">
+			<a class="well-link disabled" disabled href=""><i class="icon-bottle-of-water"></i> BottleWashing</a>
+		</div>
+		<div class="well-item">
+			<a class="well-link disabled" disabled href=""><i class="icon-FILLER"></i> FillerCleaning</a>
+		</div>
+		<div class="well-item">
+			<a class="well-link disabled" disabled href=""><i class="icon-SMB"></i> SteamMassBalance</a>
+		</div>
+	</div>
+</div>
+<div class="main-charts">
+	<h4 class="section-title">General Statistics</h4>
+	<div class="charts">
+		<div class="child-chart child-chart--small">
+			<h5>Assessments In Progress</h5>
+			<div class="chart text-small" id="chart1"></div>
+		</div>
+		<div class="child-chart child-chart--small">
+			<h5>Number of Assessments done YTD</h5>
+			<div class="chart text-small" id="chart2"></div>
+		</div>
+		<div class="child-chart">
+			<h5>Assessments by Country</h5>
+			<div class="chart text-small" id="chart3"></div>
+		</div>
+	</div>
+</div>
+<div class="checks-in-progress">
+	<div class="checks-list-header clearfix">
+		<h4 class="section-title">Assessments In Progress <span class="flex-table-mb-report"><input ng-disabled="!isConnected" type="checkbox" ng-click="vm.pagination(1,vm.showOffline)" ng-model="vm.showOffline" class="intended field-checkbox field-inline" /> View Offline Assessments</span> <button class="btn btn-primary btn-sm pull-right" ng-click="vm.store_offline()" ng-show="vm.offline_nids.length>0&&isConnected">Store Offline</button></h4>
+	</div>
+	<div class="checks-list-view">
+		<!-- <div class="table-filter">
+			<div class="half-width  pull-right align-right">
+				<i class="icon-filter"></i> Filter Options <i class="icon-ellipsis-v"></i>
+			</div>
+			<div class="half-width">
+				<i class="icon-calendar"></i> Filter by date <i class="icon-angle-down"></i>
+			</div>
+		</div> -->
+		<div class="form-row form-assesment" ng-repeat="report in vm.reports.data | orderBy: 'report.field_audit_date':false track by $index">
+			<div class="column column-11-1 " ui-sref="layout.report({id:report.nid,type:report.type})">
+				<div class="table-row assesment-progress">
+					<div ng-click="$event.stopPropagation()"><input type="checkbox" id="checkbox-{{report.nid}}" ng-show="isConnected&&!vm.showOffline" ng-disabled="!report.checked&&vm.offline_nids.length>4||report.isModifiedOffline" ng-click="vm.select_reports(report)" class="field-checkbox field-inline field-checkbox-spacing" ng-true-value="{{report.nid}}" ng-false-value="{{report.nid}}" value="{{report.nid}}" /><label for="checkbox-{{report.nid}}"><i ng-class="{'icon-file-o': report.status=='0', 'icon-check': report.status&&report.status=='1'}"></i></label></div>
+					<div class="table-span no-wrap table-row-dashboard">{{report.field_audit_date&&report.field_audit_date*1000|date:'dd-MM-yyyy' || ''}}</div>
+					<div class="table-span-20 table-row-dashboard">{{report.field_report_id}}</div>
+					<div class="table-span table-row-dashboard">{{report.type_title}}</div>
+					<div class="table-span-20 table-row-dashboard"><p class="text-row-wrapping">{{report.customer_information_title}}</p></div>
+					<div class="right-align table-row-dashboard">{{report.customer_information_field_country}}</div>
+					<div class="right-align table-span-20 table-row-dashboard"><p class="text-row-wrapping">{{report.title}}</p></div>
+					<div class="table-span" ng-click="$event.stopPropagation();"><span ng-show="report.isModifiedOffline&&isConnected" ng-click="vm.sync(report,$index)"><i class="icon-refresh"></i></span>
+					</div>
+				</div>
+			</div>
+			<div class="column  dot-padding">
+				<span uib-dropdown>
+					<a class="icon-dots-three-vertical deleteIcon" ng-hide="report.checked" uib-dropdown-toggle >
+					</a>
+					<ul class="dropdown-menu" uib-dropdown-menu role="menu" >
+  					<li ng-if="report.status==1&&!vm.showOffline" ng-click="vm.finalizeAssessment(report.nid,$index);" role="menuitem"><a><i class="icon-lock"></i> Finalize</a></li>
+						<li role="menuitem" ng-click="vm.remove({id:report.nid,isSync:report.isSync}, vm.reports.data, $index)"><a><i class="icon-trash-o color-red"></i> Delete</a></li>
+					</ul>
+				</span>
+			</div>
+		</div>
+		<div>
+			<div class="text-center">
+			 <div ng-if="vm.reports.total&&vm.reports.total < 1" class="pagination-assesment">There are no assessments</div>
+        <uib-pagination total-items="vm.reports.total" ng-model="vm.currentPage" ng-change="vm.pagination(vm.currentPage,vm.showOffline)"></uib-pagination>
+      </div>
+      <fieldset ng-if="vm.reports.total" class="margin-bottom-legends margin-center column-3-1">
+      <legend>Icon Legend</legend>
+      	<div class="form-row pagination-assesment">
+      		<div class="column-6 text-center">
+      			<i class="icon-file-o "></i>
+      			<span class="legend-icon-normal">Saved</span>
+      		</div>
+      		<div class="column-6">
+      			<i class="icon-check"></i>
+      			<span class="legend-icon-normal">Submitted</span>
+      		</div>
+      		<div class="column-3-1">
+      			<i class="icon-refresh"></i>
+      			<span class="legend-icon-normal">Sync</span>
+      		</div>
+      	</div>
+      </div>
+    </fieldset>
+		</div>
+	</div>
+	</div>
+</div>
+</div>

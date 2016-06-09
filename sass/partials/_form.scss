@@ -1,0 +1,589 @@
+// Variables
+$color-grey-input: $light-gray;
+
+label {
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  border-radius: 0;
+  appearance: none;
+}
+
+input[disabled], select[disabled], button[disabled] {
+  cursor: not-allowed !important;
+}
+
+input[disabled] {
+  background: darken($gray, 12%) !important;
+}
+
+::-webkit-input-placeholder {
+  color: $dark-gray;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.field-checkbox {
+  appearance: checkbox;
+}
+
+.field-inline {
+  display: inline-block;
+  width: auto;
+  margin: 0 5px;
+}
+
+select[size] {
+  min-width: 200px;
+  min-height: 100px;
+}
+
+.modal {
+  select {
+    max-height: 250px;
+  }
+}
+
+.selectize-input {
+  min-height: 30px;
+  padding: 5px 10px;
+}
+
+.form {
+  padding: 10px;
+
+  .form-item {
+    position: relative;
+
+    &-inline {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .label {
+        width: 40%;
+      }
+
+      .field {
+        width: 60%;
+      }
+    }
+  }
+  // Special case for massbalance text box
+  .form-item-mb {
+    .label {
+      font-weight: normal;
+    }
+    .field {
+      width: 100px;
+    }
+  }
+
+  // Special case for accumulated energy
+  [for="dropdown-params-temp"] {
+    align-self: center;
+  }
+
+  .validation-messages {
+    font-size: 14px;
+    margin: 2px;
+    color: $danger-color;
+    padding: 2px;
+  }
+
+  &.ng-submitted input.ng-invalid, input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
+    border-color: $danger-color !important;
+  }
+
+  &.form-inline {
+    label {
+      margin-bottom: 10px;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  fieldset {
+    width: 100%;
+    margin-bottom: 10px;
+    min-width: 0;
+  }
+
+  input[type="text"], input[type="number"], input[type="email"], select:not([multiple]) {
+    width: 100%;
+    padding: 5px 10px;
+  }
+
+  select:not([multiple]) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 20px;
+
+    & + label {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+
+      &:after {
+        @extend %icon;
+
+        content: "\f078";
+        font-weight: 400;
+      }
+    }
+  }
+
+  input:focus, select:focus {
+    outline: none;
+  }
+}
+
+.form-dark {
+  input[type="text"], input[type="number"], input[type="email"], select {
+    background-color: $color-grey-input;
+    border: 1px solid #CECBCB;
+  }
+
+  select[multiple="multiple"] {
+    height: inherit;
+    min-width: 50%;
+
+    option:selected {
+      color: red;
+    }
+  }
+}
+
+.form-light {
+  input[type="text"], input[type="number"], input[type="email"], select {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #CECBCB;
+  }
+
+  select[multiple="multiple"] {
+    height: inherit;
+    width: inherit;
+
+    option:selected {
+      color: red;
+    }
+  }
+}
+
+.padding-span-2 {
+  padding-left: 2%;
+}
+
+.padding-span-4 {
+  padding-left: 4%;
+}
+
+.col-span-2 {
+  padding-right: 50%;
+}
+
+.form-row {
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: space-between;
+
+  &.flex-dir-col {
+    flex-direction: column;
+  }
+
+  &.space-around {
+    justify-content: space-around;
+
+    label {
+      display: block;
+    }
+  }
+
+  .form-col {
+    width: 48%;
+    padding: 0 5px;
+
+    &.full-width {
+      width: 100%;
+    }
+  }
+}
+
+// Radio/checkbox button group
+.input-group-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .group-button-item {
+    position: relative;
+    input[type="radio"], input[type="checkbox"] {
+      position: absolute;
+      &:checked + .group-button-item-label {
+        background: $color-primary;
+        color: #fff;
+      }
+    }
+    input[type="text"] {
+      border: 0;
+    }
+  }
+  .group-button-item-label {
+    height: 30px;
+    padding: 5px 10px;
+    border: 1px solid #CECBCB;
+    line-height: 1;
+    cursor: pointer;
+    &--text {
+      padding: 0;
+    }
+  }
+}
+
+/******input file**************/
+.file {
+  border: 1px solid #CECBCB;
+  background-color: #F1F1F1;
+  padding: 4px;
+  font-size: smaller;
+
+  .btn-group {
+    float: right;
+  }
+
+  label {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+
+  input {
+    display: none;
+  }
+
+  .file-text {
+    display: inline-block;
+    margin: 10px 0 0 10px;
+    color: gray;
+
+    @extend .ellipsis;
+  }
+}
+
+/******End input file**************/
+
+/******checkbox****************/
+
+.checkbox {
+  display: inline-block;
+  margin-right: 5%;
+
+  input[type="checkbox"] {
+    visibility: hidden;
+  }
+
+  label {
+    font-weight: 400;
+  }
+
+  input[type=checkbox]:not(old) + label:before {
+    @extend %icon;
+
+    display: inline-block;
+    font: normal normal normal 14px/1;
+    font-size: 20px;
+    text-rendering: auto;
+    margin-right: 10px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f04d";
+    color: #CDCDCD;
+  }
+
+  input[type=checkbox]:not(old):checked + label:before {
+    content: "\f14a";
+    color: #4AD562;
+  }
+}
+
+.radio {
+  display: inline-block;
+  margin-right: 5%;
+
+  input[type="radio"] {
+    visibility: hidden;
+  }
+
+  label {
+    font-weight: 400;
+  }
+
+  input[type=radio]:not(old) + label:before {
+    @extend %icon;
+
+    display: inline-block;
+    font: normal normal normal 14px/1;
+    font-size: 20px;
+    text-rendering: auto;
+    margin-right: 10px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f10c";
+    color: #CDCDCD;
+  }
+
+  input[type=radio]:not(old):checked + label:before {
+    content: "\f192";
+    color: #4AD562;
+  }
+}
+
+/******end checkbox************/
+
+/******switch********/
+.tgl {
+  display: none;
+}
+
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+
+.tgl::-moz-selection, .tgl:after::-moz-selection, .tgl:before::-moz-selection, .tgl *::-moz-selection, .tgl *:after::-moz-selection, .tgl *:before::-moz-selection, .tgl + .tgl-btn::-moz-selection {
+  background: none;
+}
+
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+  background: none;
+}
+
+.tgl + .tgl-btn {
+  margin-bottom: 0 !important;
+  outline: 0;
+  display: block;
+  width: 4em;
+  font-size: 14px !important;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+
+.tgl + .tgl-btn:after {
+  left: 0;
+}
+
+.tgl + .tgl-btn:before {
+  display: none;
+}
+
+.tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+.tgl-ios + .tgl-btn {
+  background: #C9C9C9;
+  border-radius: 2em;
+  padding: 2px;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+  border: 1px solid #e8eae9;
+}
+
+.tgl-ios + .tgl-btn:after {
+  border-radius: 2em;
+  background: #eee;
+  -webkit-transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.tgl-ios + .tgl-btn:hover:after {
+  will-change: padding;
+}
+
+.tgl-ios + .tgl-btn:active {
+  box-shadow: inset 0 0 0 2em #e8eae9;
+}
+
+.tgl-ios + .tgl-btn:active:after {
+  padding-right: .8em;
+}
+
+.tgl-ios:checked + .tgl-btn {
+  background: #4AD562;
+}
+
+.tgl-ios:checked + .tgl-btn:active {
+  box-shadow: none;
+}
+
+.tgl-ios:checked + .tgl-btn:active:after {
+  margin-left: -.8em;
+}
+
+/******end switch*************/
+.required-field {
+  color: $danger-color;
+  font-size: 14px;
+  margin: 0 5px;
+}
+
+/* Selectizer overrided Theming*/
+.selectize-input, .full {
+  background-color: rgb(238, 238, 238) !important;
+  border-radius: initial;
+  font-size: 16px;
+  font-family: helvetica;
+  color: #555555;
+
+  &:after {
+    border-radius: initial;
+    content: "\f078" !important;
+    font-family: 'icomoon' !important;
+    speak: none;
+    position: absolute;
+    top: 10px !important;
+    right: 23px !important;
+    line-height: 1 !important;
+    border-style: none !important;
+  }
+}
+
+.selectize-dropdown {
+  font-size: 16px;
+  font-family: helvetica;
+  color: #555555;
+}
+
+/*Rotating Spinner icons*/
+.icon-spinner {
+  position: relative;
+  min-height: 400px;
+  text-align: center;
+  padding: 2px 18px;
+
+  &:before {
+    @keyframes spin {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+
+    position: absolute;
+    animation: spin 1s infinite steps(8);
+  }
+}
+
+#loading-bar-spinner {
+  top: 50%;
+  left: 50%;
+
+  .spinner-icon {
+    width: 40px;
+    height: 40px;
+    border: solid 4px transparent;
+    border-top-color: #29d;
+    border-left-color: #29d;
+    border-radius: 50%;
+    -webkit-animation: loading-bar-spinner 400ms linear infinite;
+    -moz-animation: loading-bar-spinner 400ms linear infinite;
+    -ms-animation: loading-bar-spinner 400ms linear infinite;
+    -o-animation: loading-bar-spinner 400ms linear infinite;
+    animation: loading-bar-spinner 400ms linear infinite;
+  }
+}
+
+/*Date Picker Check List form*/
+.uib-datepicker-popup {
+  position: absolute;
+  z-index: 10000;
+  background-color: #ccc;
+  padding: 0 10px 10px;
+  width: 100% !important;
+  line-height: 11px;
+
+  table {
+    width: 100%;
+    background: #fff;
+  }
+
+  .btn {
+    margin: 0;
+  }
+
+  .btn-success {
+    float: left;
+  }
+}
+
+/*Multiple width set*/
+.multiple-expand {
+  width: 70%;
+}
+
+/*Top-bar Menu Sealed Air logog*/
+.top-bar [ui-sref]:not([disabled]) img {
+  max-width: 145px;
+}
+
+/*Grid specific Css*/
+.form-option-cip, .form-col-cip {
+  textarea {
+    width: 90%;
+  }
+}
+
+.form-option-cip {
+  .radio {
+    padding: 5px;
+    line-height: 1px;
+  }
+}
+
+.form-col-cip {
+  line-height: 30px;
+}
+
+.cip-note {
+  font-size: 12px;
+}
+
+.field-checkbox-spacing {
+  margin: 0 15px !important;
+}
+
+/*Import Aqua Scan Page section*/
+.import-aquascan {
+  padding: 10px 40px;
+
+  a {
+    color: #25C2D0;
+    text-decoration: none;
+  }
+}
+/*Highchart DownLoad as png context menu theming*/
+.highcharts-contextmenu hr {
+  display: none;
+}

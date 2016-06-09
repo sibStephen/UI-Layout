@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="uiform">
+	<head>
+		<meta charset="utf-8" />
+		<base href="/" target="_blank">
+		<title ng-bind="title"></title>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="index.js"></script>
+		<script src="layout/layout.module.js"></script>
+		<script src="layout/layout.controller.js"></script>
+		<script src="dashboard/dashboard.module.js"></script>
+		<script src="dashboard/dashboard.controller.js"></script>
+		<link rel="stylesheet" href="css/styles.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="apple-touch-icon" href="/assests/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-title" content="BEST Checks">
+		<link rel="icon" href="/assests/favicon.ico">
+		<link rel="shortcut icon" href="/assests/favicon.ico">
+		<!-- endinjector -->
+	</head>
+	<body >
+		<div class="main-container">
+			<ui-view></ui-view>
+		</div>
+		<!-- bower:js -->
+	</body>
+</html>

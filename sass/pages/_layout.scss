@@ -1,0 +1,105 @@
+// @TODO refactor
+.charts {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.child-chart {
+  width: 30%;
+  margin-right: 20px;
+  &:nth-child(2) {
+    width: 35%;
+  }
+  &:last-child {
+    width: 35%;
+    margin-right: 0;
+  }
+
+  min-height: 70px;
+  border: 1px solid #F1F1F1 ;
+  background-color: #FFF;
+  padding: 0 10px;
+
+  img {
+    width: 60%;
+    height: 170px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  h5 {
+    color: #A5A5A5;
+  }
+}
+
+.checks-list-view {
+  margin-bottom: 100px;
+  border: 1px solid #F1F1F1;
+  background-color: $white-color;
+}
+
+// .icon-chevron-circle-right, .icon-battery-three-quarters {
+//   color: #4dc90a;
+//   font-size: x-large !important;
+// }
+.page-image {
+  width: 15%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.sidenav-text {
+  display: none;
+  font-size: 12px;
+  font-weight: 600;
+  width: 96px;
+  margin-top: 8px;
+  float: right;
+  white-space: nowrap;
+}
+
+.collapsible-btn-icon:before {
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f054";
+}
+
+.nav-expanded {
+  .sidebar {
+    .sidenav-text {
+      display: block;
+    }
+
+    -webkit-transition-property: width;
+
+    /* Safari */
+    -webkit-transition-duration: 500ms;
+
+    /* Safari */
+    transition-property: width;
+    transition-duration: 500ms;
+    width: 150px !important;
+
+  }
+
+  .collapsible-btn-icon:before {
+    content: "\f053" !important;
+  }
+
+  .container {
+    margin-left: 184px;
+  }
+}

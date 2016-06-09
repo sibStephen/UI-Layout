@@ -1,0 +1,109 @@
+// Button variables
+$primary-btn-color: #2FC6D3;
+$disabled-btn-color: #C9C9C9;
+$warning-btn-color: #B7D329;
+$danger-color: #E3332B;
+
+.btn {
+  color: #fff;
+  padding: 10px 15px;
+  margin: 0 5px 3px;
+  border: none;
+  text-transform: capitalize;
+}
+
+.btn-default {
+  color: black;
+  background-color: white;
+}
+
+.btn-large {
+  padding: 10px 40px 10px 40px;
+  font-size: 1.25em;
+}
+
+.btn-sm {
+  padding: 5px 7px;
+}
+
+.btn-danger {
+  background-color: $danger-color;
+}
+
+.btn-inline-group {
+  .btn-inline {
+    display: inline-block;
+    position: relative;
+    margin-right: 5px;
+    input {
+      position: absolute;
+      z-index: -1;
+    }
+  }
+}
+
+.btn-primary {
+  background-color: $primary-btn-color;
+
+  .btn-icon-position {
+    position: relative;
+    top: 1px;
+  }
+}
+
+.btn-warning {
+  background-color: $warning-btn-color;
+}
+
+.btn-disabled {
+  background-color: $disabled-btn-color;
+}
+
+.btn-modal {
+  font-size: 20px;
+  background: #fff;
+  color: $primary-btn-color;
+}
+
+.btn-direction-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/*Left right axis Buttons on runchart*/
+.btn-icon-width {
+  .btn-icon-position {
+    font-size: 2em;
+  }
+}
+
+.btn-login {
+  width: 100%;
+  border: none;
+  margin-top: 30px;
+  font-size: x-large;
+  border-radius: 30px;
+  font-family: helvetica;
+  padding: 20px;
+  text-decoration: none;
+  color: #FFF;
+  background: -webkit-linear-gradient(to right, #1ebfc0 52%, #1ebfc0 52%, #3ddcad 62%, #3ddcad 64%, #3ddcad 64%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 100%, #7db9e8 100%, #3ddcad 100%);
+  background: -moz-linear-gradient(to right, #1ebfc0 52%, #1ebfc0 52%, #3ddcad 62%, #3ddcad 64%, #3ddcad 64%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 100%, #7db9e8 100%, #3ddcad 100%);
+  background: linear-gradient(to right, #1ebfc0 52%, #1ebfc0 52%, #3ddcad 62%, #3ddcad 64%, #3ddcad 64%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 66%, #3ddcad 100%, #7db9e8 100%, #3ddcad 100%);
+}
+
+.icon-lock-closed-outline:before {
+  content: "\e910";
+}
+
+.icon-chevron-medium {
+  font-size: 1.5em !important;
+  bottom: 6px;
+}
+
+.btn-group, .btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}

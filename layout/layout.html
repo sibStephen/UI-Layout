@@ -1,0 +1,21 @@
+<div class="top-bar">
+	<div class="">
+		<a ui-sref="layout.dashboard">
+			<img src="../assests/new_logo.png" alt="Home">
+		</a>
+	</div>
+	<div>
+			<div class="logout-container new-assesment-spacing" ng-show="isConnected"><span class="text new-assesment-spacing">Welcome, Sibu</span><i class="icon-sign-out"></i><span class="text pointer button-space logout-hover"ng-click="vm.logout()">Logout</span></div>
+	</div>
+</div>
+<div class="content-container" ng-class="{'nav-expanded':vm.expanded}">
+	<div class="sidebar">
+		<ul>
+			<li class="collapsible-btn"><a class="no-underline" href="" ng-click="vm.toggleSideBar()"><i class="collapsible-btn-icon"></i></a></li>
+			<li ng-disabled="{{menu.disabled}}" ui-sref="{{menu.state}}" ng-repeat="menu in menus" ui-sref-active="active-list-item"><a class="no-underline"><i class="{{menu.icon}}"></i> <div class="sidenav-text">{{menu.text}}</div></a></li>
+		</ul>
+	</div>
+	<div class="container">
+		<ui-view></ui-view>
+	</div>
+</div>

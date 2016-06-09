@@ -1,0 +1,11 @@
+{
+  "name": "frontend",
+  "private": true,
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "grunt-http-server": "~1.14.0",
+    "wiredep": "~4.0.0"
+  }
+}

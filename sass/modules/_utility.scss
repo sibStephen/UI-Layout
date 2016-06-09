@@ -1,0 +1,202 @@
+[ui-sref]:not([disabled]) {
+  cursor: pointer !important;
+}
+[disabled], .disabled, %disabled {
+  cursor: not-allowed !important;
+  pointer-events: none;
+  opacity: .5;
+}
+.pointer, %pointer {
+  cursor: pointer !important;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.color-green, %color-green {
+  color: $green;
+}
+.color-red, %color-red {
+  color: $red;
+}
+.color-blue, %color-blue {
+  color: $sky-blue;
+}
+.bg-green {
+  background-color: $green;
+}
+.bg-red {
+  background-color: $red;
+}
+.bg-grey {
+  background-color: $gray;
+}
+.bg-blue {
+  background-color: $sky-blue;
+}
+.bg-white {
+  background-color: #fff;
+}
+.no-underline, %no-underline {
+  text-decoration: none !important;
+}
+.text-center, %text-center {
+  text-align: center;
+}
+.text-bold, %text-bold {
+  font-weight: bold;
+}
+.text-small, %text-small {
+  font-size: 13px;
+}
+.uppercase, %uppercase {
+  text-transform: uppercase;
+}
+.no-wrap, %no-wrap {
+  white-space: nowrap;
+}
+.no-margin, %no-margin {
+  margin: 0 !important;
+}
+.no-padding, %no-padding {
+  padding: 0 !important;
+}
+.hidden, %hidden {
+  display: none !important;
+}
+.nowrap, %nowrap {
+  white-space: nowrap;
+}
+::-webkit-input-placeholder {
+  color: #fff;
+}
+.clearfix, %clearfix, .clear-fix {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+.z-l1 {
+  z-index: 1 !important;
+}
+.z-l2 {
+  z-index: 9 !important;
+}
+.z-l3 {
+  z-index: 11 !important;
+}
+.d-flex, %d-flex {
+  display: flex;
+  justify-content: space-around;
+}
+.bt-progress {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 18px;
+  border: 1px solid $light-gray;
+
+  @extend .icon-progress;
+}
+.button-space {
+  margin: 0px 6px;
+}
+
+.ellipsis{
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.network-status {
+  margin-right: 15px;
+    color: $red;
+}
+.dot-padding {
+  border-bottom: 1px solid #E4E4E4;
+  padding-top: 10px;
+  margin-left: 0 !important;
+}
+.assesment-progress div {
+  padding: 12px 5px !important;
+}
+.form-assesment {
+  margin-bottom: 0 !important;
+}
+.form-audit {
+  margin-bottom: 0 !important;
+}
+.form-audit div {
+  padding: 15px 5px !important;
+  display: table-cell;
+  padding: 10px 5px;
+  width: 10%;
+  border-bottom: 1px solid #E4E4E4;
+  text-align: center;
+}
+/*Import aqua scan*/
+.report-color {
+    padding-left: 0 !important;
+  li {
+    list-style-type: none;
+    margin-bottom: 9px;
+  }
+  a {
+    color: #555;
+  }
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+/*Text row in Assesment listing page on Dashboard*/
+.text-row-wrapping {
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px !important;
+}
+/*Audit page*/
+.new-assesment-spacing {
+  margin-right: 15px;
+}
+/* Dashboard Message Alignment and Logout hover */
+.pagination-assesment {
+  margin-top: 10px;
+}
+ .logout-hover:hover {
+  color:$color-primary;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+}
+.margin-center {
+  margin: 0 auto;
+}
+.margin-bottom-legends {
+  margin-bottom: 20px;
+}
+.legend-icon-large {
+  font-size: 20px;
+}
+
+.legend-icon-normal {
+  font-size: 14px;
+}
+.baseline-align {
+  vertical-align: baseline;
+}
+.super-align {
+ vertical-align: super;
+}
+.text-top-align {
+  vertical-align: text-top;
+}
