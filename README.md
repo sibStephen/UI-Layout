@@ -2,8 +2,9 @@
 
 A Basic Page Made in Angular
 
-Do - 
+Do the following steps -
+
       npm install 
       bower install
 
-RUN Grunt Http-server (After installing all the dependencies)
+RUN grunt Http-server (After installing all the dependencies)
