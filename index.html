@@ -85,16 +85,6 @@
 			    <div class="tab-item-content">
 			      <div class="checks-in-progress">
 			        <div class="checks-list-view">
-			          <div class="flex-list" ng-repeat="report in vm.reports.data track by $index">
-			            <div class="flex-list-row flex-list-row-audit flex-row-content" ui-sref="layout.report({id:report.nid,type:'checklist'})">
-			              <div class="flex-list-col text-center"><i class="icon-lock"></i></div>
-			              <div class="flex-list-col no-wrap">{{report.field_audit_date*1000|date:vm.dateFormat || ''}}</div>
-			              <div class="flex-list-col-double no-wrap"><p class="no-margin ellipsis">{{report.field_report_id}}</p></div>
-			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.customer_information_title}}</p></div>
-			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.customer_information_field_country}}</p></div>
-			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.title}}</p></div>
-			            </div>
-			          </div>`
 			        </div>
 			      </div>
 			    </div>
@@ -103,15 +93,7 @@
 			    <div class="tab-item-content">
 			      <div class="checks-in-progress">
 			        <div class="checks-list-view">
-			          <div class="flex-list" ng-repeat="report in vm.reports.data track by $index">
-			            <div class="flex-list-row flex-list-row-audit flex-row-content" ui-sref="layout.report({id:report.nid,type:'cip_tools_checklist'})">
-			              <div class="flex-list-col text-center"><i class="icon-lock"></i></div>
-			              <div class="flex-list-col no-wrap">{{report.field_audit_date*1000|date:vm.dateFormat || ''}}</div>
-			              <div class="flex-list-col-double no-wrap"><p class="no-margin ellipsis">{{report.field_report_id}}</p></div>
-			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.customer_information_title}}</p></div>
-			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.customer_information_field_country}}</p></div>
-			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.title}}</p></div>
-			            </div>
+			          <div class="flex-list">
 			          </div>
 			        </div>
 			      </div>
