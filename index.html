@@ -1,30 +1,125 @@
 <!DOCTYPE html>
 <html ng-app="uiform">
-	<head>
-		<meta charset="utf-8" />
-		<base href="/" target="_blank">
-		<title ng-bind="title"></title>
-		<script src="bower_components/angular/angular.js"></script>
-		<script src="index.js"></script>
-		<script src="layout/layout.module.js"></script>
-		<script src="layout/layout.controller.js"></script>
-		<script src="dashboard/dashboard.module.js"></script>
-		<script src="dashboard/dashboard.controller.js"></script>
-		<link rel="stylesheet" href="css/styles.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="mobile-web-app-capable" content="yes">
-		<link rel="apple-touch-icon" href="/assests/favicon.ico">
-		<link rel="apple-touch-icon-precomposed" href="/favicon.ico">
-		<meta name="apple-mobile-web-app-title" content="BEST Checks">
-		<link rel="icon" href="/assests/favicon.ico">
-		<link rel="shortcut icon" href="/assests/favicon.ico">
-		<!-- endinjector -->
-	</head>
-	<body >
-		<div class="main-container">
-			<ui-view></ui-view>
+<head>
+	<meta charset="utf-8" />
+	<base href="/" target="_blank">
+	<title ng-bind="title"></title>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="index.js"></script>
+	<script src="layout/layout.module.js"></script>
+	<script src="layout/layout.controller.js"></script>
+	<script src="dashboard/dashboard.module.js"></script>
+	<script src="dashboard/dashboard.controller.js"></script>
+	<link rel="stylesheet" href="css/styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-icon" href="/assests/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="/favicon.ico">
+	<meta name="apple-mobile-web-app-title" content="BEST Checks">
+	<link rel="icon" href="/assests/favicon.ico">
+	<link rel="shortcut icon" href="/assests/favicon.ico">
+	<!-- endinjector -->
+</head>
+<body >
+	<div class="parent-options">
+		<div class="top-bar">
+			<div>
+				<div class="logout-container new-assesment-spacing" ng-show="isConnected"><span class="text new-assesment-spacing">Welcome, Sibu</span><i class="icon-sign-out"></i></div>
+			</div>
 		</div>
-		<!-- bower:js -->
-	</body>
+		<div class="content-container" ng-class="{'nav-expanded':vm.expanded}">
+			<div class="sidebar">
+				<ul>
+					<li><i class="icon-star"></i> <div class="sidenav-text"></div></a></li>
+					<li><i class="icon-search-plus"></i> <div class="sidenav-text"></div></a></li>
+					<li><i class="icon-checklist"></i> <div class="sidenav-text"></div></a></li>
+					<li><i class="icon-tag2"></i> <div class="sidenav-text"></div></a></li>
+				</ul>
+			</div>
+			<div class="container">
+			<div class="top-second">
+					<div class="payment">PAYMENT</div>
+					<div class="consumer top-left"><input type="text"/><button class="btn btn-sm btn-primary rightoftextbox"><i class="icon-search"></i></button></div>
+			</div>
+			<div class="top-third">
+					<div class="bill-balance top-left">
+						<li class="bill-status">
+							<a class="top">Current Bill</a>
+							<a class="left">1500</a>
+						</li>
+						<li class="bill-status">
+							<a class="top">Previous Balance</a>
+							<a class="left">1500</a>
+						</li>
+						<li class="bill-status">
+							<a class="top">Bill Status</a>
+							<a class="left">1100</a>
+						</li>
+					</div>
+			</div>
+			<div class="top-fourth">
+				<div class="white-container">
+					<div class="top-small-bar">
+						Consumer Details
+						<i class="collapsible-btn-icon">
+						</i>
+						<i class="icon-search-minus">
+						</i>
+					</div>
+					<div class="green-number">
+						E1222344
+					</div>
+					<div class="details">
+						Blahdffg
+						rfdfrd
+						erf4erdf
+						erfdc
+						9890653131
+					</div>
+				</div>
+			</div>
+			<div class="white-container">
+			<tabset tab-index="vm.activeTab">
+			  <tab heading="AquaCheck">
+			    <div class="tab-item-content">
+			      <div class="checks-in-progress">
+			        <div class="checks-list-view">
+			          <div class="flex-list" ng-repeat="report in vm.reports.data track by $index">
+			            <div class="flex-list-row flex-list-row-audit flex-row-content" ui-sref="layout.report({id:report.nid,type:'checklist'})">
+			              <div class="flex-list-col text-center"><i class="icon-lock"></i></div>
+			              <div class="flex-list-col no-wrap">{{report.field_audit_date*1000|date:vm.dateFormat || ''}}</div>
+			              <div class="flex-list-col-double no-wrap"><p class="no-margin ellipsis">{{report.field_report_id}}</p></div>
+			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.customer_information_title}}</p></div>
+			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.customer_information_field_country}}</p></div>
+			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.title}}</p></div>
+			            </div>
+			          </div>`
+			        </div>
+			      </div>
+			    </div>
+			  </tab>
+			  <tab heading="CIPCheck">
+			    <div class="tab-item-content">
+			      <div class="checks-in-progress">
+			        <div class="checks-list-view">
+			          <div class="flex-list" ng-repeat="report in vm.reports.data track by $index">
+			            <div class="flex-list-row flex-list-row-audit flex-row-content" ui-sref="layout.report({id:report.nid,type:'cip_tools_checklist'})">
+			              <div class="flex-list-col text-center"><i class="icon-lock"></i></div>
+			              <div class="flex-list-col no-wrap">{{report.field_audit_date*1000|date:vm.dateFormat || ''}}</div>
+			              <div class="flex-list-col-double no-wrap"><p class="no-margin ellipsis">{{report.field_report_id}}</p></div>
+			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.customer_information_title}}</p></div>
+			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.customer_information_field_country}}</p></div>
+			              <div class="flex-list-col-double"><p class="no-margin ellipsis">{{report.title}}</p></div>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </tab>
+			</tabset>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

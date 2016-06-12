@@ -1399,6 +1399,7 @@ hr {
   box-shadow: 0px 0px 5px -1px rgba(107, 99, 107, 0.7); }
 
 .accordion-section-title {
+  color: red;
   padding: 8px 15px;
   transition: all linear 0.15s;
   font-size: 1.200em;
@@ -2017,16 +2018,14 @@ select[size] {
   padding-left: 5% !important; }
 
 .top-bar {
-  z-index: 1000;
-  height: 70px;
+  height: 28px;
   border-bottom: 1px solid #E4E4E4;
   position: fixed;
   width: 100%;
   background-color: #FFF;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0 10px 10px; }
+  padding: 10px 0 10px 10px;
+}
 
 .logo {
   width: 30%; }
