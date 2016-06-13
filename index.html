@@ -24,9 +24,7 @@
 <body >
 	<div class="parent-options">
 		<div class="top-bar">
-			<div>
-				<div class="logout-container new-assesment-spacing" ng-show="isConnected"><span class="text new-assesment-spacing">Welcome, Sibu</span><i class="icon-sign-out"></i></div>
-			</div>
+			<div class="logout-container new-assesment-spacing"`>Welcome Sibu<i class="icon-sign-out"></i></div>
 		</div>
 		<div class="content-container" ng-class="{'nav-expanded':vm.expanded}">
 			<div class="sidebar">
@@ -38,70 +36,70 @@
 				</ul>
 			</div>
 			<div class="container">
-			<div class="top-second">
+				<div class="top-second">
 					<div class="payment">PAYMENT</div>
-					<div class="consumer top-left"><input type="text"/><button class="btn btn-sm btn-primary rightoftextbox"><i class="icon-search"></i></button></div>
-			</div>
-			<div class="top-third">
-					<div class="bill-balance top-left">
+					<div class="consumer top-right"><input type="text"/><button class="btn btn-sm btn-primary rightoftextbox"><i class="icon-search"></i></button></div>
+				</div>
+				<div class="top-third">
+					<div class="bill-balance top-right">
 						<li class="bill-status">
 							<a class="top">Current Bill</a>
-							<a class="left">1500</a>
+							<a class="blue-number left">1500</a>
 						</li>
 						<li class="bill-status">
 							<a class="top">Previous Balance</a>
-							<a class="left">1500</a>
+							<a class="green-number left">-400</a>
 						</li>
 						<li class="bill-status">
 							<a class="top">Bill Status</a>
-							<a class="left">1100</a>
+							<a class="red-number left">1100</a>
 						</li>
 					</div>
-			</div>
-			<div class="top-fourth">
-				<div class="white-container">
-					<div class="top-small-bar">
-						Consumer Details
-						<i class="collapsible-btn-icon">
-						</i>
-						<i class="icon-search-minus">
-						</i>
-					</div>
-					<div class="green-number">
-						E1222344
-					</div>
-					<div class="details">
-						Blahdffg
-						rfdfrd
-						erf4erdf
-						erfdc
-						9890653131
+				</div>
+				<div class="top-fourth">
+					<div class="white-container">
+						<div class="top-small-bar">
+							Consumer Details
+							<i class="collapsible-btn-icon">
+							</i>
+							<i class="icon-search-minus">
+							</i>
+						</div>
+						<div class="green-number-check">
+							E1222344
+						</div>
+						<div class="details">
+							Blahdffg
+							rfdfrd
+							erf4erdf
+							erfdc
+							9890653131
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="white-container">
-			<tabset tab-index="vm.activeTab">
-			  <tab heading="AquaCheck">
-			    <div class="tab-item-content">
-			      <div class="checks-in-progress">
-			        <div class="checks-list-view">
-			        </div>
-			      </div>
-			    </div>
-			  </tab>
-			  <tab heading="CIPCheck">
-			    <div class="tab-item-content">
-			      <div class="checks-in-progress">
-			        <div class="checks-list-view">
-			          <div class="flex-list">
-			          </div>
-			        </div>
-			      </div>
-			    </div>
-			  </tab>
-			</tabset>
+				<div class="white-container">
+					<tabset tab-index="vm.activeTab">
+						<tab heading="AquaCheck">
+							<div class="tab-item-content">
+								<div class="checks-in-progress">
+									<div class="checks-list-view">
+									</div>
+								</div>
+							</div>
+						</tab>
+						<tab heading="CIPCheck">
+							<div class="tab-item-content">
+								<div class="checks-in-progress">
+									<div class="checks-list-view">
+										<div class="flex-list">
+										</div>
+									</div>
+								</div>
+							</div>
+						</tab>
+					</tabset>
+				</div>
 			</div>
 		</div>
-	</div>
-</body>
-</html>
+	</body>
+	</html>
